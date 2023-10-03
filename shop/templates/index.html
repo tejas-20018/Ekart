@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+ <div class="row">
+            <div class="col-md-3 mt-4">
+                <h6>Filter by category</h6>
+                <hr>
+                <p><a href="/index" class="anchorclass">all</a></p><br>
+                <p><a href="/catfilter/1" class="anchorclass">by metal</a></p><br>
+                <p><a href="/catfilter/2" class="anchorclass">by electronics</a></p><br>
+                
+                <h6>Filter by category</h6>
+                <hr>
+                <form action="/pricerange">
+                    <div class="mb-3">
+                        <label for="minid" class="form-label"></label><strong>MinValue:</strong>
+                        </label>
+                        <input type="number" name="min" class="form-control" id="minid" placeholder="MIN VALUE">
+                    </div>
+                    <div class="mb-3">
+                        <label for="maxid" class="form-label"><strong>MaxValue:</strong></label>
+                        <input type="number" class="form-control" id="maxid" name="max" placeholder="MAX VALUE">
+
+                    </div>
+                    <p><button type="submit" class="btn btn-danger">Search</button></p>
+                </form>
+                <h6>Sort by price</h6>
+                <hr>
+                <p><a href="/sort/1" class="anchorclass">high to low</a></p>
+                <p><a href="/sort/0" class="anchorclass">low to high</a></p>
+
+
+
+
+                
+            </div>
+            <div class="col-md-9">
+                <div class="row mt-4">
+                {% for x in product %}
+                    <div class="col-md-4 mt-3">
+                        <div class="card" style="width: 100%">
+                            <img src="{{x.pimage.url}}" class="card-img-top" alt="..." height="200px" width="200px">
+                            <div class="card-body">
+                                <h5 class="card-title">{{x.name}}</h5>
+                                {% if x.cat == '1' %}
+                                <p class="card-text">metal</p>
+                                {% else %}
+                                <p class="card-text">electronics</p>
+                                {% endif %}
+                                <p class="card-text">Rs.{{x.price}}</p>
+                                <a href="/details/{{x.id}}" class="btn btn-primary">view product</a>
+                                
+                            </div>
+                     
+                            
+                        </div>
+
+
+                    
+                    </div>
+                {% endfor %} 
+                        
+                </div>
+
+
+            </div>
+{% endblock 'main' %}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addproduct_dashboard</title>
+</head>
+<body>
+    <!--<p><strong>Welcome user</strong>{{user}}</p>
+    <hr>
+    <h4>Decision control</h4>
+    {% if x > y %}
+        <p>If block</p>
+        <p> {{x}} is greater</p>
+    {% else %}
+        <p>Else block</p>
+        <p>{{y}} is greater</p>
+    {% endif %}
+    <hr>
+    <h4>For loop</h4>
+    {{l}}
+    <br>
+    {% for x in l %}
+        {{x}}  <br>
+        {% endfor %}
+        <hr>
+        <h4>For over dictionary</h4>
+        {{d}}
+        <br>
+        {% for x,y in d.items %}
+        {% endfor %}
+        <br>
+        <h4>Dictionary in list</h4>
+        {% for x in data %}
+                {{x}} <br>
+        {% endfor %}--->
+
+        <h4>Accessing dictionary keys values</h4>
+        <h1><align="center">DASHBOARD</h1>
+        <h4><a href="/addproduct">Add product</a></h4>
+
+        <table border="1" align="center">
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>price</th>
+            </tr>
+            {% for x in products %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.price}}</td>
+                <td><a href="/edit/{{x.id}}">Edit</a></td>
+                <td><a href="/delete/{{x.id}}">delete</a></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    
+</body>
+</html>
+

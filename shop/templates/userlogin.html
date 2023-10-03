@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 mt-5 mx-auto shadow p-5">
+
+            <h2 class="mb-3 text-center text-danger" >Login</h2>
+            {% if errmsg %}
+                   <div class="alert alert-danger" role="alert">
+                         {{errmsg}}
+                   </div>
+                
+            {% endif %}
+
+            <form method="post" action="">
+                {% csrf_token %}
+
+                <div class="mb-3"> <!-- mb = m-margin b-bottom-->
+                    <label for="uname" class="form-label"><strong>Username:</strong></label>
+                    <input type="text" class="form-control" name="uname"  placeholder="Enter Your Username">
+                </div>
+
+                <div class="mb-3"> <!-- mb = m-margin b-bottom-->
+                    <label for="lpass" class="form-label"><strong>Password:</strong></label>
+                    <input type="password" class="form-control" name="upass" placeholder="Enter Your Password">
+                  </div>
+
+                  <div class="mb-3">
+                    <input type="submit" class="btn btn-danger" value="Login">
+                    &nbsp;Create an Account&nbsp;&nbsp;&nbsp;<a href="/register" style="text-decoration: none;">Register</a>
+                  </div>
+
+
+            </form>
+        </div>
+
+
+    </div>
+
+</div>
+{% endblock 'main' %}

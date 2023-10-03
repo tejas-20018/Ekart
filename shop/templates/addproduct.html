@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addproduct</title>
+
+</head>
+<body>
+    <form method="post" action="">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>product Name:</td>
+                <td><input type="text" name="pname" placeholder="Enter product name"></td>
+                </tr>
+
+               <tr>
+                <td>product price:</td>
+                <td><input type="number" name="price" placeholder="enter product price"></td>
+               </tr>                
+
+               <tr>
+                <td>
+                    <input type="submit" value="addprduct">
+                </td>
+               </tr>
+
+            </tr>
+        </table>
+    
+</body>
+</html>
